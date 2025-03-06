@@ -1,0 +1,114 @@
+@import "variables";
+
+.banner-main {
+  background-color: $color-black;
+  height: 92vh;
+  width: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Neon grid effect on the right side
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        rgba(255, 0, 255, 0.2) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    animation: moveGrid 8s linear infinite;
+  }
+
+  // Smooth moving gradient glow in bottom-right
+}
+
+// Keyframes for moving grid effect
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+// Keyframes for subtle gradient movement
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  padding-top: 9%;
+  position: absolute;
+  right: -9%;
+}
+
+.bg-img img {
+  float: right;
+  width: 54%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.banner-texts {
+  height: 100%;
+  position: absolute;
+  color: $color-white;
+  top: 0;
+  left: 0;
+  place-content: center;
+  padding-left: 5%;
+}
+
+.banner-texts h1 {
+  font-size: 6rem;
+  font-family: $font-orbitron;
+  width: 55%;
+  line-height: 0.9;
+  letter-spacing: 8px;
+  padding: 30px 0px;
+  border-top: 2px solid $color-white;
+  border-bottom: 2px solid $color-white;
+}
+
+.banner-texts h2 {
+  font-size: 2.5rem;
+  width: 55%;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 20px 5px;
+  letter-spacing: 8px;
+}
+
+.banner-texts p {
+  font-size: 1.5rem;
+  width: 55%;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 20px 5px;
+  letter-spacing: 2px;
+}

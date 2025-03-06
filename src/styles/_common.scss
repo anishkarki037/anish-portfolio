@@ -1,0 +1,30 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-noto-sans;
+}
+::selection {
+  background-color: none;
+  color: purple;
+}
+
+.container {
+  width: calc(100% - 4%);
+  padding: 2%;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-secondary;
+  border-radius: 20px;
+  border: transparent;
+}
