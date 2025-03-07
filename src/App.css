@@ -245,7 +245,7 @@ nav {
 }
 @media (max-width: 768px) {
   .banner {
-    height: 100vh;
+    height: 95vh;
     width: 100%;
     padding: 0;
   }
