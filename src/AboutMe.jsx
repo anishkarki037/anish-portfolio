@@ -104,11 +104,13 @@ const AboutMe = () => {
             }}
           >
             I am a software developer with a passion for creating user-friendly
-            applications. I have experience in developing web applications using
-            React, Node.js, and Express. I am always eager to learn new
-            technologies and improve my skills. I am currently looking for
-            opportunities to work on challenging projects and grow as a
-            developer.
+            applications. I. My work focuses on blending functionality with
+            intuitive design, ensuring the best user experience.I love
+            experimenting with React, Next.js, Blazor MAUI, Laravel,Python etc.,
+            always looking for ways to push the boundaries of technology. I
+            Co-Founded Bluebug Software and currently working as a CEO and
+            Software Developer. I am always looking for opportunities to work on
+            challenging projects and grow as a developer.
           </p>
         </div>
         <div className="about-gif">
