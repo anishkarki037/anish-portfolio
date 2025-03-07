@@ -1,41 +1,186 @@
 .about-main {
   border-radius: 50px;
   background-color: $color-black;
-  height: 92vh;
+  height: 80vh;
+
   color: $color-white;
   place-content: center;
   padding: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
 
   .about-text {
     width: 50%;
-
-    padding: 0px 0;
+    padding: 0;
 
     h2 {
-      font-size: 5rem;
+      font-size: clamp(2.5rem, 5vw, 5rem);
       font-family: $font-orbitron;
       line-height: 1.2;
       padding: 20px 0;
-      letter-spacing: 8px;
+      letter-spacing: clamp(4px, 0.8vw, 8px);
     }
+
     p {
-      font-size: 1.3rem;
+      font-size: clamp(0.875rem, 1.5vw, 1.3rem);
       line-height: 1.5;
       padding: 20px 0;
       color: $color-gray;
-      letter-spacing: 3px;
+      letter-spacing: clamp(1px, 0.3vw, 3px);
     }
   }
+
   .about-gif {
     width: 35%;
-    height: 100%;
+    min-width: 250px;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+/* Large desktop and laptop screens (1440px and up) */
+@media (min-width: 1440px) {
+  .about-main {
+    padding: 60px 80px;
+    gap: 60px;
+  }
+}
+
+/* Standard desktop screens */
+@media (max-width: 1280px) {
+  .about-main {
+    padding: 40px;
+    gap: 30px;
+    height: 85vh;
+  }
+}
+
+/* Small desktop and large tablet screens */
+@media (max-width: 1024px) {
+  .about-main {
+    flex-direction: column;
+    padding: 40px 30px;
+    gap: 30px;
+
+    .about-text {
+      width: 100%;
+      text-align: center;
+
+      h2 {
+        padding: 15px 0;
+      }
+
+      p {
+        padding: 15px 0;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.4rem;
+      }
+    }
+
+    .about-gif {
+      width: 60%;
+      margin: 20px auto 0;
+    }
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .about-main {
+    padding: 30px 20px;
+    border-radius: 30px;
+    gap: 20px;
+
+    .about-text h2 {
+      padding: 10px 0;
+    }
+
+    .about-text p {
+      padding: 10px 0;
+    }
+
+    .about-gif {
+      width: 70%;
+    }
+  }
+}
+
+/* Large mobile screens */
+@media (max-width: 600px) {
+  .about-main {
+    padding: 25px 15px;
+    border-radius: 25px;
+
+    .about-gif {
+      width: 80%;
+    }
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .about-main {
+    padding: 20px 15px;
+    border-radius: 0px;
+
+    .about-text h2 {
+      padding: 8px 0;
+    }
+
+    .about-text p {
+      padding: 8px 0;
+    }
+
+    .about-gif {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 320px) {
+  .about-main {
+    padding: 15px 10px;
+    border-radius: 0px;
+  }
+}
+
+/* Handle viewport height for very short screens */
+@media (max-height: 600px) {
+  .about-main {
+    min-height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Handle orientation changes */
+@media (orientation: landscape) and (max-height: 500px) {
+  .about-main {
+    flex-direction: row;
+    min-height: auto;
+
+    .about-text {
+      width: 60%;
+      text-align: left;
+    }
+
+    .about-gif {
+      width: 30%;
+      margin: 0;
     }
   }
 }

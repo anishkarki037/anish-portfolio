@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h2 {
     position: sticky;
   }
@@ -15,5 +16,33 @@
     padding: 50px 0;
     letter-spacing: 5px;
     font-stretch: expanded;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-main h1 {
+    font-size: 7.5rem;
+    word-spacing: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text {
+    padding-top: 30px !important;
+  }
+  .text-main h1 {
+    font-size: 6rem;
+    word-spacing: 10px;
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-main h1 {
+    height: 10vh;
+    place-content: center;
+    font-size: 3.4rem;
+    word-spacing: 5px;
+    padding: 20px 0;
   }
 }

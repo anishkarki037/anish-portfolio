@@ -92,11 +92,36 @@ nav {
 }
 
 @media (max-width: 768px) {
+  nav {
+    width: 90vw;
+    left: 0;
+    transform: none;
+    padding: 0 5vw;
+  }
   .nav-links {
     display: none;
   }
 
+  .nav-links.open {
+    width: 100vw;
+    text-align: right;
+  }
+  .nav-links.open a {
+    font-size: 3rem;
+  }
   .hamburger-menu {
     display: flex;
+  }
+  .logo img {
+    width: 100px;
+  }
+  .cta {
+    .button-wrapper {
+      padding: 20px !important;
+      button {
+        font-size: 0.7rem;
+        border: 3px solid white;
+      }
+    }
   }
 }
