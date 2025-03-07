@@ -1325,25 +1325,32 @@ footer .bottom .bottom-right a:hover {
   }
   .bottom-left,
   .bottom-right {
-    padding: 15px !important;
     width: 100% !important;
+    padding: 10px !important;
   }
 }
 @media (max-width: 480px) {
+  footer {
+    padding: 20px 0px !important;
+  }
   .top h1 {
     font-size: 3rem;
     margin-bottom: 5px;
   }
   .bottom-left p,
   .bottom-right p {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
   }
   .bottom {
     padding: 5px;
+    align-items: center;
+    width: 100% !important;
   }
   .bottom-left,
   .bottom-right {
     padding: 10px;
+    font-size: 1rem !important;
+    width: 100% !important;
   }
 }
 
