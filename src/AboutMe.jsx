@@ -66,7 +66,7 @@ const AboutMe = () => {
         }
       },
       {
-        threshold: 0.7, // Trigger when 70% of the section is visible
+        threshold: 0.3, // Trigger when 70% of the section is visible
         rootMargin: "-10px",
       }
     );
