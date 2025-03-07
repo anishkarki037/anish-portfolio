@@ -13,13 +13,13 @@ const dummyWorks = [
     title: "YUMA Clothing",
     tag: "E-COMMERCE WEBSITE",
     image: yuma,
-    link: "https:/demo3.bluebugsoft.com",
+    link: "https://demo3.bluebugsoft.com",
   },
   {
     title: "Visit Abroad",
     tag: "TRAVEL",
     image: visit,
-    link: "https:/demo2.bluebugsoft.com",
+    link: "https://demo2.bluebugsoft.com",
   },
   { title: "Bijuwar Skatepark", tag: "TICKETING SOFTWARE", image: Bijuwar },
 
