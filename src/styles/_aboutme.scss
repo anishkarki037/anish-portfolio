@@ -134,7 +134,7 @@
 /* Small mobile screens */
 @media (max-width: 480px) {
   .about-main {
-    padding: 20px 15px;
+    padding: 30px 15px;
     border-radius: 0px;
 
     .about-text h2 {
@@ -143,6 +143,7 @@
 
     .about-text p {
       padding: 8px 0;
+      font-size: 1rem !important;
     }
 
     .about-gif {
