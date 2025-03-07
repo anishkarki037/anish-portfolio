@@ -102,6 +102,7 @@
     padding: 30px 20px;
     border-radius: 30px;
     gap: 20px;
+    height: auto !important;
 
     .about-text h2 {
       padding: 10px 0;
@@ -109,6 +110,7 @@
 
     .about-text p {
       padding: 10px 0;
+      font-size: 1 rem !important;
     }
 
     .about-gif {
