@@ -104,7 +104,7 @@ const AboutMe = () => {
             }}
           >
             I am a software developer with a passion for creating user-friendly
-            applications. I. My work focuses on blending functionality with
+            applications. My work focuses on blending functionality with
             intuitive design, ensuring the best user experience.I love
             experimenting with React, Next.js, Blazor MAUI, Laravel,Python etc.,
             always looking for ways to push the boundaries of technology. I
