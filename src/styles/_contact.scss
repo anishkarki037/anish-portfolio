@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 10px;
+  padding: 30px 10px;
   height: 80vh;
   width: 95%;
   margin: auto;
@@ -12,6 +12,7 @@
   color: white;
   gap: 20px;
   position: relative; // Needed for the overlay
+  margin-bottom: 30px !important;
 
   &::before {
     content: "";

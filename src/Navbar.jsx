@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import logo from "./assets/anish-logo.webp";
 
@@ -6,6 +7,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
   const linksRef = useRef([]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (isOpen) {
@@ -43,11 +46,37 @@ const Navbar = () => {
       });
     }
   }, [isOpen]);
-
   const handleLinkClick = (event, id) => {
     event.preventDefault();
     setIsOpen(false);
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+
+    if (id === "#works") {
+      navigate("/works");
+      return;
+    }
+    if (id === "#blogs") {
+      navigate("/blogs");
+      return;
+    }
+    if (id === "#home") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleCtaClick = () => {
@@ -57,20 +86,33 @@ const Navbar = () => {
   return (
     <header>
       <ul ref={navRef} className={`nav-links ${isOpen ? "open" : ""}`}>
-        {["Home", "About", "Tech", "Works", "Contact"].map((text, index) => (
-          <li key={text} ref={(el) => (linksRef.current[index] = el)}>
-            <a
-              href={`#${text.toLowerCase()}`}
-              onClick={(e) => handleLinkClick(e, `#${text.toLowerCase()}`)}
-            >
-              {text}
-            </a>
-          </li>
-        ))}
+        {["Home", "About", "Tech", "Works", "Blogs", "Contact"].map(
+          (text, index) => (
+            <li key={text} ref={(el) => (linksRef.current[index] = el)}>
+              <a
+                href={text === "Works" ? "/works" : `#${text.toLowerCase()}`}
+                onClick={(e) => handleLinkClick(e, `#${text.toLowerCase()}`)}
+              >
+                {text}
+              </a>
+            </li>
+          )
+        )}
       </ul>
       <nav>
         <div className="logo">
-          <a href="#home">
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsOpen(false);
+              if (location.pathname !== "/") {
+                navigate("/");
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <img src={logo} alt="Anish Karki logo" />
           </a>
         </div>

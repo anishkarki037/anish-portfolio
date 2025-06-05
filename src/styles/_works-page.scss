@@ -1,0 +1,235 @@
+.works-page {
+  padding: 120px 5% 50px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+
+  .works-page-header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-family: $font-orbitron;
+      background: linear-gradient(45deg, #e29a28, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 8px rgba(226, 154, 40, 0.3));
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #b3b3b3;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .work-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+      .work-card-overlay {
+        opacity: 1;
+      }
+    }
+
+    .work-card-image {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+
+      .work-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .view-live {
+          padding: 12px 25px;
+          background: #e29a28;
+          color: white;
+          text-decoration: none;
+          border-radius: 25px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #d88a1f;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    .work-card-content {
+      padding: 20px;
+      color: white;
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-family: $font-orbitron;
+        color: #e29a28;
+      }
+
+      p {
+        color: #b3b3b3;
+        font-size: 1rem;
+      }
+    }
+  }
+  /* Work card footer layout */
+  .work-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Technologies container */
+  .technologies-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Technology tags */
+  .tech-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: all 0.3s ease;
+  }
+
+  .tech-tag:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.5);
+  }
+
+  /* Action buttons container */
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Action buttons */
+  .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .action-btn:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+  }
+
+  /* Live button */
+  .live-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+
+  .live-btn:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  }
+
+  /* GitHub button */
+  .github-btn {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
+  }
+
+  .github-btn:hover {
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.6);
+  }
+}
+
+@media (max-width: 768px) {
+  .works-page {
+    padding: 100px 20px 40px;
+
+    .works-page-header {
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .works-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .works-page {
+    padding: 80px 15px 30px;
+
+    .works-page-header {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .works-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+}
