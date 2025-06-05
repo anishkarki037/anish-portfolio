@@ -50,7 +50,7 @@ nav {
   align-items: center;
   text-align: center;
   z-index: 9998;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .nav-links.open a {
@@ -104,6 +104,7 @@ nav {
   }
 
   .nav-links.open {
+    padding-top: 1rem;
     width: 100vw;
     text-align: right;
   }

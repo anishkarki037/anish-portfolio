@@ -9,10 +9,19 @@ const BlogPost = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [renderedContent, setRenderedContent] = useState("");
+
   useEffect(() => {
     // Always scroll to top when this component mounts
     window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
+
+  // Function to escape HTML entities
+  const escapeHtml = (text) => {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  };
+
   // Function to convert Draft.js content to HTML
   const convertDraftToHtml = (draftContent) => {
     try {
@@ -45,9 +54,13 @@ const BlogPost = () => {
         const text = block.text || "";
         const type = block.type || "unstyled";
 
-        // Apply inline styles
+        // Apply inline styles - but skip for code-block type
         let styledText = text;
-        if (block.inlineStyleRanges && block.inlineStyleRanges.length > 0) {
+        if (
+          block.inlineStyleRanges &&
+          block.inlineStyleRanges.length > 0 &&
+          type !== "code-block"
+        ) {
           // Sort ranges by offset (descending) to avoid offset issues when inserting tags
           const sortedRanges = [...block.inlineStyleRanges].sort(
             (a, b) => b.offset - a.offset
@@ -71,7 +84,7 @@ const BlogPost = () => {
                 wrappedText = `<u>${targetText}</u>`;
                 break;
               case "CODE":
-                wrappedText = `<code>${targetText}</code>`;
+                wrappedText = `<code>${escapeHtml(targetText)}</code>`;
                 break;
               default:
                 wrappedText = targetText;
@@ -81,11 +94,12 @@ const BlogPost = () => {
           });
         }
 
-        // Apply entity styles (links, etc.)
+        // Apply entity styles (links, etc.) - but skip for code-block type
         if (
           block.entityRanges &&
           block.entityRanges.length > 0 &&
-          contentData.entityMap
+          contentData.entityMap &&
+          type !== "code-block"
         ) {
           const sortedEntityRanges = [...block.entityRanges].sort(
             (a, b) => b.offset - a.offset
@@ -139,7 +153,10 @@ const BlogPost = () => {
             html += `<ol><li>${styledText}</li></ol>`;
             break;
           case "code-block":
-            html += `<pre><code>${styledText}</code></pre>`;
+            // Escape HTML in code blocks to prevent rendering
+            html += `<div class="pre-wrapper"><pre><code>${escapeHtml(
+              text
+            )}</code></pre></div>`;
             break;
           case "atomic":
             // Handle atomic blocks (images, embeds, etc.)
@@ -303,12 +320,39 @@ const BlogPost = () => {
             )}
 
             {/* Render converted Draft.js content */}
-            <div
-              className="blog-content"
-              dangerouslySetInnerHTML={{
-                __html: renderedContent || post.content,
-              }}
-            />
+            <div className="blog-content">
+              {post.content && post.content.blocks ? (
+                post.content.blocks.map((block, index) => {
+                  if (block.type === "code-block") {
+                    return (
+                      <div key={index} className="pre-wrapper">
+                        <pre>
+                          <code>{block.text}</code>
+                        </pre>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        key={index}
+                        dangerouslySetInnerHTML={{
+                          __html: convertDraftToHtml({
+                            blocks: [block],
+                            entityMap: post.content.entityMap,
+                          }),
+                        }}
+                      />
+                    );
+                  }
+                })
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: renderedContent || post.content,
+                  }}
+                />
+              )}
+            </div>
 
             {post.tags && post.tags.length > 0 && (
               <div className="blog-tags">

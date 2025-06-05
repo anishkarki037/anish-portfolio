@@ -110,40 +110,249 @@
       }
     }
   }
+  .blog-content pre,
+  .blog-content code {
+    background: #181c24;
+    color: #e0e0e0;
+    font-family: "JetBrains Mono", "Fira Mono", "Consolas", monospace;
+    font-size: 1em;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1.5em 0;
+    overflow-x: auto;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    tab-size: 2;
+  }
+
+  .blog-content code {
+    padding: 0.2em 0.4em;
+    font-size: 0.95em;
+    background: #23272e;
+    color: #ffb86c;
+    border-radius: 4px;
+    display: inline;
+  }
+
+  .blog-content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+  }
 }
 
+/* Tablet devices */
+@media (max-width: 1024px) {
+  .blog-post-page {
+    .container {
+      padding: 0 4%;
+    }
+
+    .blog-post-header {
+      padding: 140px 0 35px;
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .back-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    .blog-post-content {
+      padding: 20px 10px !important;
+
+      .featured-image {
+        height: 450px;
+        margin-bottom: 35px;
+      }
+
+      .content {
+        max-width: 700px;
+        font-size: 1.05rem;
+      }
+    }
+  }
+}
+
+/* Smaller tablets and large phones */
 @media (max-width: 768px) {
   .blog-post-page {
+    .container {
+      padding: 0 3.5%;
+    }
+
     .blog-post-header {
-      padding: 100px 0 30px;
+      padding: 120px 0 30px;
 
       h1 {
         font-size: 2.5rem;
+        margin-bottom: 15px;
       }
 
       .blog-meta {
         font-size: 0.9rem;
         gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .back-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
       }
     }
 
     .blog-post-content {
       padding: 40px 0;
 
+      .featured-image {
+        height: 350px;
+        margin-bottom: 30px;
+      }
+
       .content {
         font-size: 1rem;
+        line-height: 1.7;
+
+        p {
+          margin-bottom: 20px;
+        }
+      }
+
+      .blog-content pre,
+      .blog-content code {
+        font-size: 0.95em;
+        padding: 0.8em;
+        margin: 1.2em 0;
       }
     }
   }
 }
 
+/* Mobile devices */
 @media (max-width: 480px) {
+  .blog-post-page {
+    .container {
+      padding: 0 20px;
+    }
+
+    .blog-post-header {
+      padding: 100px 0 25px;
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+      }
+
+      .blog-meta {
+        font-size: 0.85rem;
+        gap: 8px;
+
+        span {
+          &:nth-child(even) {
+            display: none;
+          }
+        }
+      }
+
+      .back-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    .blog-post-content {
+      padding: 30px 0;
+
+      .featured-image {
+        height: 250px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+      }
+
+      .content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+
+        p {
+          margin-bottom: 16px;
+        }
+
+        .blog-tags {
+          gap: 8px;
+          margin-top: 30px;
+
+          .tag {
+            padding: 4px 12px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .blog-content pre,
+      .blog-content code {
+        font-size: 0.9em;
+        padding: 0.7em;
+        margin: 1em 0;
+        border-radius: 6px;
+      }
+
+      .blog-content code {
+        padding: 0.15em 0.3em;
+      }
+    }
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+  .blog-post-page {
+    .blog-post-header {
+      padding: 90px 0 20px;
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .blog-meta {
+        font-size: 0.8rem;
+      }
+    }
+
+    .blog-post-content {
+      .featured-image {
+        height: 200px;
+      }
+
+      .content {
+        font-size: 0.9rem;
+      }
+
+      .blog-content pre,
+      .blog-content code {
+        font-size: 0.85em;
+      }
+    }
+  }
+}
+
+/* Handle devices with very low height */
+@media (max-height: 600px) {
   .blog-post-page {
     .blog-post-header {
       padding: 80px 0 20px;
+    }
 
-      h1 {
-        font-size: 2rem;
+    .blog-post-content {
+      padding: 25px 0;
+
+      .featured-image {
+        height: 200px;
       }
     }
   }
